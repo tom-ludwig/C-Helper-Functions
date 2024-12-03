@@ -70,3 +70,24 @@ bool input_double(double *value);
 bool input_long_double(long double *value);
 bool input_string(char *buffer, size_t size);
 ```
+#### Math
+##### Random:
+Supported data types:
+- `int`
+- `unsigned int`
+- `float`
+- `long`
+- `unsigned long`
+- `long long`
+- `unsigned long long`
+- `double`
+
+All functions follow the general form: `[T] random_[T]([T] min, [T] max);`. Where `[T]` represents one of the supported data types listed above.
+A random seed is initialized automatically (via `srand(time(NULL))`).
+
+
+
+
+
+
+
