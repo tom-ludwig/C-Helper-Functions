@@ -1,7 +1,5 @@
 #include "time_block.h"
-#include <pthread.h>
-#include <stdbool.h>
-#include <unistd.h>
+
 long long fibonacci(int n) {
   if (n <= 1) {
     return n;
@@ -26,16 +24,21 @@ long long dynamicFibonacci(int n) {
 
 int main() {
   // Find out how long it takes to calculate the 10th Fibonacci number
-  TIME_BLOCK("Classic Fibonacci sequens of 40", "", { fibonacci(40); });
-  TIME_BLOCK("Classic Fibonacci sequens of 40", "", { fibonacci(40); });
+  TIME_BLOCK("Classic Fibonacci sequens of 40", "", fibonacci(40));
+  TIME_BLOCK("Classic Fibonacci sequens of 40", "", fibonacci(40));
 
-  TIME_BLOCK("Classic Fibonacci sequens of 41", "", { fibonacci(41); });
+  TIME_BLOCK("Classic Fibonacci sequens of 41", "", fibonacci(41));
 
-  TIME_BLOCK("Dynamic Fibonacci sequence for 40", "ns",
-             { dynamicFibonacci(40); });
+  TIME_BLOCK("Dynamic Fibonacci sequence for 40", "ns", dynamicFibonacci(40));
 
   TIME_BLOCK("Dynamic Fibonacci sequence for 1000", "ns",
-             { dynamicFibonacci(1000); });
+             dynamicFibonacci(1000));
+
+  TIME_BLOCK("Defined variables can be used outside the scope now", "",
+             int i = 20;
+             ++i;);
+  ++i;
+  printf("%d\n", i);
 
   return 0;
 }
