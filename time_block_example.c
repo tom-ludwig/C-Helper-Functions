@@ -34,10 +34,10 @@ int main() {
   TIME_BLOCK("Dynamic Fibonacci sequence for 1000", "ns",
              dynamicFibonacci(1000));
 
-  TIME_BLOCK("Defined variables can be used outside the scope now", "",
-             int i = 20;
-             ++i;);
-  ++i;
+  // NOTE: If necessary to use variables outside the TIME_BLOCK afterwards
+  // define them outside first
+  int i = 20;
+  TIME_BLOCK("Use varibles outside the TIME_BLOCK", "", fibonacci(i); ++i;);
   printf("%d\n", i);
 
   return 0;
