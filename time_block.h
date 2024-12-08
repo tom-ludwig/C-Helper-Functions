@@ -5,6 +5,7 @@
 #include <string.h>
 #include <time.h>
 
+// Available units: ns, us, ms, s, m, h; Leave empty for dynamic scaling
 #define TIME_BLOCK(label, unit, code_block)                                    \
   {                                                                            \
     clock_t start_time = clock();                                              \
