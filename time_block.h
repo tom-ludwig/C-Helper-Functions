@@ -1,12 +1,17 @@
+#ifndef TIME_BLOCK_H
+#define TIME_BLOCK_H
+
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
 
 // Available units: ns, us, ms, s, m, h; Leave empty for dynamic scaling
 #define TIME_BLOCK(label, unit, code_block)                                    \
-  do {                                                                         \
+  {                                                                            \
     clock_t start_time = clock();                                              \
-    code_block;                                                                \
+    {                                                                          \
+      code_block;                                                              \
+    }                                                                          \
     clock_t end_time = clock();                                                \
     double time_taken = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;    \
     if (unit && strcmp(unit, "ns") == 0) {                                     \
@@ -40,4 +45,6 @@
         printf("[%s] Time taken: %.3f hours\n", label, time_taken / 3600);     \
       }                                                                        \
     }                                                                          \
-  } while (0)
+  }
+
+#endif // !TIME_BLOCK_H
