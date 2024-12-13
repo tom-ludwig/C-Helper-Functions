@@ -1,3 +1,11 @@
+/*
+ * Copyright © 2024
+ * Created by Tom M. Ludwig, Louis Kauer, Julian Kuecken, and Pepe Hanisch
+ *
+ * This project is licensed under the MIT License.
+ * You may use, modify, and distribute this software under the terms of the license.
+*/
+
 #ifndef RANDOM_HELPERS_H
 #define RANDOM_HELPERS_H
 
