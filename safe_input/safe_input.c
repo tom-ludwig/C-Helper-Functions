@@ -23,6 +23,7 @@ static bool read_line(char* buffer, size_t size) {
         } else {
             int c;
             while ((c = getchar()) != '\n' && c != EOF); // Clear stdin buffer
+            return false;
         }
         return true;
     }
